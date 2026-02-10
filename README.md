@@ -121,7 +121,7 @@ This project demonstrates how data analytics can help airlines:
 
 ## 📷 Dashboard Preview
 
-(Add screenshot here after upload)
+<img width="1176" height="659" alt="image" src="https://github.com/user-attachments/assets/9385b963-f801-4f54-9098-20963d1fd42e" />
 
 ---
 
