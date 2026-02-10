@@ -1,99 +1,131 @@
-✈️ Flight Price Analysis & Revenue Optimization
-📌 Project Overview
+# ✈️ Flight Price Analysis & Revenue Optimization Dashboard
 
-Airline ticket prices vary significantly depending on travel demand, airline strategy and flight characteristics.
-This project analyzes flight data to uncover the key factors influencing ticket prices and identify revenue optimization opportunities.
+## 📌 Project Overview
 
-🎯 Objectives
+This project analyzes airline ticket pricing and identifies **revenue optimization opportunities** using **SQL, Python, and Power BI**.
 
-Identify major drivers of airline ticket pricing
+The goal is to answer key business questions:
 
-Analyze travel demand patterns
+* What factors influence flight ticket prices?
+* Which routes are overpriced or underpriced?
+* Where can airlines increase revenue?
 
-Build an interactive BI dashboard for business decision-making
+This project simulates a real **Revenue Management Analyst** use case.
 
-🛠 Tech Stack
+---
 
-SQL → Data modeling & feature engineering
+## 🧰 Tech Stack
 
-Python (Pandas, Matplotlib, Seaborn) → Exploratory Data Analysis
+* SQL → Data cleaning & feature engineering
+* Python (Pandas, Matplotlib) → Exploratory Data Analysis
+* Power BI → Interactive Dashboard & Business Insights
 
-Power BI → Dashboard & Business Insights
+---
 
-📂 Dataset Features
+## 📊 Dataset
 
-Airline
+The dataset contains flight information including:
 
-Source & Destination
+* Airline
+* Source & Destination
+* Number of Stops
+* Flight Duration
+* Departure Time
+* Date & Month
+* Ticket Price
 
-Total Stops
+---
 
-Price
+## ⚙️ Data Modeling (SQL)
 
-Duration
+Created an analytics-ready table with engineered features:
 
-Travel Date & Month
+New features created:
 
-Departure Time
+* **Route** → Source → Destination
+* **Duration (minutes)** → Converted duration to numeric format
+* **Departure Hour Bucket** → Morning / Afternoon / Evening / Night
+* **Route Segment** → Premium / Optimization / Discount
+* **Revenue Opportunity Score** → Identifies pricing improvement potential
 
-⚙️ Data Engineering
+---
 
-Created an analytics dataset with new features:
+## 🔎 Exploratory Data Analysis (Python)
 
-Route = Source → Destination
+Key pricing drivers discovered:
 
-Duration (minutes)
+### 💰 Price by Airline
 
-Departure Time Bucket (Morning / Afternoon / Evening / Night)
+Jet Airways Business flights have the highest average ticket prices.
 
-Revenue Segment:
+### 🗓 Price by Month
 
-Premium Route
+Flight prices peak during **March & May**, indicating high demand periods.
 
-Optimization Route
+### ⏱ Price by Stops
 
-Discount Route
+Flights with more stops tend to be more expensive in this dataset.
 
-📊 Dashboard Insights
-💰 Pricing Drivers
+### 🕒 Revenue Opportunity by Departure Time
 
-Premium airlines charge significantly higher fares.
+Certain departure hours show **higher revenue potential**, indicating pricing inefficiencies.
 
-More stops → higher ticket price.
+---
 
-Longer flights → higher pricing.
+## 📈 Power BI Dashboard
 
-📅 Seasonality
+The dashboard provides an executive-level overview of airline pricing and revenue opportunities.
 
-March–June shows peak pricing.
+### Executive KPIs
 
-April shows a noticeable demand dip.
+* Average Ticket Price: **9.03K**
+* Average Flight Duration: **629 mins**
+* Cheapest Airline: **SpiceJet**
+* Most Expensive Route: **Bangalore → New Delhi**
 
-🕐 Departure Time Opportunity
+### Dashboard Pages
 
-Morning & evening flights have highest demand.
+1️⃣ Executive Overview
+2️⃣ Pricing Drivers Analysis
+3️⃣ Route Opportunity Matrix
+4️⃣ Revenue Management Segments
 
-Night flights show pricing opportunity for discounts.
+---
 
-🗺 Route Analysis
+## 🎯 Business Insights
 
-Bangalore → New Delhi identified as highest priced route.
+### Premium Routes 🥇
 
-📈 Business Recommendations
+High-demand routes where airlines can **increase prices** safely.
 
-Implement dynamic pricing for peak months.
+### Optimization Routes 🔵
 
-Increase fares during high-demand departure hours.
+Routes where pricing can be **fine-tuned** to maximize revenue.
 
-Offer promotions for low-demand time slots.
+### Discount Routes 🟢
 
-Use route segmentation to maximize revenue.
+Price-sensitive routes where **competitive pricing** is required.
 
-🖥 Dashboard Preview
+---
 
-(Add your screenshot here later)
+## 🚀 Key Outcome
 
-🚀 Project Outcome
+This project demonstrates how data analytics can help airlines:
 
-This project demonstrates an end-to-end analytics workflow:
-Data → Analysis → Visualization → Business Insights.
+* Improve pricing strategy
+* Identify high-revenue routes
+* Optimize departure time pricing
+* Support revenue management decisions
+
+---
+
+## 📷 Dashboard Preview
+
+(Add screenshot here after upload)
+
+---
+
+## 👩‍💻 Author
+
+**Rihana Roshan**
+Aspiring Data Analyst | Power BI | SQL | Python
