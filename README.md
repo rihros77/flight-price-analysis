@@ -1,131 +1,234 @@
-# ✈️ Flight Price Analysis & Revenue Optimization Dashboard
+# ✈️ Flight Price Analytics & Revenue Optimization Dashboard
 
 ## 📌 Project Overview
 
-This project analyzes airline ticket pricing and identifies **revenue optimization opportunities** using **SQL, Python, and Power BI**.
+This project analyzes flight pricing data to uncover **key drivers of ticket prices** and identify **revenue optimization opportunities** for airlines.
 
-The goal is to answer key business questions:
+The project follows a complete **end-to-end data analytics pipeline**:
+SQL → Python → Feature Engineering → Power BI Dashboard.
 
-* What factors influence flight ticket prices?
-* Which routes are overpriced or underpriced?
-* Where can airlines increase revenue?
+The final output is an executive-ready Power BI dashboard designed for airline revenue and pricing teams.
 
-This project simulates a real **Revenue Management Analyst** use case.
+---
+
+## 🎯 Business Problem
+
+Airlines constantly adjust ticket prices based on demand, duration, routes, and competition.
+
+This project answers key business questions:
+
+* What factors influence ticket prices?
+* Which routes generate premium revenue?
+* Which routes are underpriced and need optimization?
+* When should airlines adjust pricing strategies?
 
 ---
 
 ## 🧰 Tech Stack
 
-* SQL → Data cleaning & feature engineering
-* Python (Pandas, Matplotlib) → Exploratory Data Analysis
-* Power BI → Interactive Dashboard & Business Insights
+* **SQL (PostgreSQL)** → Data storage & querying
+* **Python (Pandas, Matplotlib, Seaborn)** → Data cleaning & feature engineering
+* **Power BI** → Dashboard & visualization
+* **GitHub** → Version control & portfolio
 
 ---
 
-## 📊 Dataset
+## 📂 Dataset Features
 
-The dataset contains flight information including:
+The dataset contains **10,000+ flight records** with:
 
 * Airline
 * Source & Destination
 * Number of Stops
+* Departure & Arrival Time
 * Flight Duration
-* Departure Time
-* Date & Month
 * Ticket Price
+* Month & Day Type (Weekday/Weekend)
 
 ---
 
-## ⚙️ Data Modeling (SQL)
+## 🧪 Data Processing & Feature Engineering (Python)
 
-Created an analytics-ready table with engineered features:
+Before building the dashboard, the dataset was processed using **Python, Pandas, and PostgreSQL** to create an analytics-ready dataset.
 
-New features created:
+### 1️⃣ Data Extraction
 
-* **Route** → Source → Destination
-* **Duration (minutes)** → Converted duration to numeric format
-* **Departure Hour Bucket** → Morning / Afternoon / Evening / Night
-* **Route Segment** → Premium / Optimization / Discount
-* **Revenue Opportunity Score** → Identifies pricing improvement potential
+* Connected Python to PostgreSQL using `psycopg2`
+* Pulled analytics table into Pandas DataFrame
 
----
+### 2️⃣ Data Cleaning
 
-## 🔎 Exploratory Data Analysis (Python)
+* Removed **222 duplicate records**
+* Verified **no missing values**
+* Converted categorical columns to optimized data types
 
-Key pricing drivers discovered:
+### 3️⃣ Exploratory Data Analysis (EDA)
 
-### 💰 Price by Airline
+Visual analysis performed using Matplotlib & Seaborn:
 
-Jet Airways Business flights have the highest average ticket prices.
+* Flight price distribution
+* Price vs Airline
+* Price vs Stops
+* Price vs Duration
+* Price vs Departure Hour
+* Price vs Month
 
-### 🗓 Price by Month
+### 4️⃣ Feature Engineering
 
-Flight prices peak during **March & May**, indicating high demand periods.
+Created business-focused metrics:
 
-### ⏱ Price by Stops
+| Feature                   | Description                                  |
+| ------------------------- | -------------------------------------------- |
+| **duration_minutes**      | Total flight duration in minutes             |
+| **price_per_hour**        | Ticket price per hour of travel              |
+| **rev_opportunity_score** | Revenue efficiency metric (price ÷ duration) |
+| **route_segment**         | Pricing strategy classification              |
 
-Flights with more stops tend to be more expensive in this dataset.
+### Route Segmentation Logic
 
-### 🕒 Revenue Opportunity by Departure Time
+Routes were categorized to help pricing strategy:
 
-Certain departure hours show **higher revenue potential**, indicating pricing inefficiencies.
+* **Premium Route** → High price + Short duration
+* **Discount Route** → Low price + Long duration
+* **Optimization Route** → Remaining routes
 
----
+### 5️⃣ Export for BI
 
-## 📈 Power BI Dashboard
+Final dataset exported for Power BI:
 
-The dashboard provides an executive-level overview of airline pricing and revenue opportunities.
-
-### Executive KPIs
-
-* Average Ticket Price: **9.03K**
-* Average Flight Duration: **629 mins**
-* Cheapest Airline: **SpiceJet**
-* Most Expensive Route: **Bangalore → New Delhi**
-
-### Dashboard Pages
-
-1️⃣ Executive Overview
-2️⃣ Pricing Drivers Analysis
-3️⃣ Route Opportunity Matrix
-4️⃣ Revenue Management Segments
-
----
-
-## 🎯 Business Insights
-
-### Premium Routes 🥇
-
-High-demand routes where airlines can **increase prices** safely.
-
-### Optimization Routes 🔵
-
-Routes where pricing can be **fine-tuned** to maximize revenue.
-
-### Discount Routes 🟢
-
-Price-sensitive routes where **competitive pricing** is required.
+```
+flight_pricing_for_powerbi.csv
+```
 
 ---
 
-## 🚀 Key Outcome
+## 📊 Power BI Dashboard
 
-This project demonstrates how data analytics can help airlines:
-
-* Improve pricing strategy
-* Identify high-revenue routes
-* Optimize departure time pricing
-* Support revenue management decisions
+The dashboard is designed for **executives and revenue managers** and contains 4 pages.
 
 ---
 
-## 📷 Dashboard Preview
+### 🟦 Page 1 — Executive Overview
 
-<img width="1176" height="659" alt="image" src="https://github.com/user-attachments/assets/9385b963-f801-4f54-9098-20963d1fd42e" />
+High-level KPIs and pricing drivers.
+
+**KPIs**
+
+* Average Ticket Price
+* Average Flight Duration
+* Cheapest Airline
+* Most Expensive Route
+
+**Charts**
+
+* Price by Airline
+* Price by Month
+* Price by Stops
 
 ---
 
-## 👩‍💻 Author
+### 🟩 Page 2 — Route Profitability
+
+Shows which routes are premium vs discount vs optimization.
+
+**Matrix Heatmap**
+
+* Rows → Route
+* Columns → Route Segment
+* Values → Avg Revenue Opportunity Score
+
+**Interactive Filters**
+
+* Airline
+* Month
+* Number of Stops
+
+---
+
+### 🟧 Page 3 — Pricing Strategy Insights
+
+Identifies pricing patterns and trends.
+
+* Stops vs Price (Scatter)
+* Duration vs Price (Scatter)
+* Revenue Opportunity by Departure Hour
+
+---
+
+### 🟪 Page 4 — Revenue Management Segments
+
+Strategic summary for pricing teams.
+
+* Distribution of Flights by Segment
+* Top Revenue Opportunities Table
+
+---
+
+## 🔍 Key Insights
+
+### 💰 Pricing Drivers
+
+* Non-stop flights have the **highest revenue efficiency**
+* Longer flights are **not always more expensive**
+* Departure time significantly impacts pricing
+
+### ✨ Revenue Opportunities
+
+* Premium routes identified for price optimization
+* Discount routes reveal underpricing opportunities
+* Departure hours highlight demand-based pricing windows
+
+---
+
+## 📁 Repository Structure
+
+```
+Flight-Price-Analytics/
+│
+├── Airline_Revenue_Dashboard.pbix
+├── flight_pricing_for_powerbi.csv
+├── flight_analysis.py
+└── README.md
+```
+
+---
+
+## 🚀 How to Run the Project
+
+### Python Analysis
+
+Install dependencies:
+
+```
+pip install pandas matplotlib seaborn psycopg2-binary
+```
+
+Run:
+
+```
+python flight_analysis.py
+```
+
+### Power BI Dashboard
+
+1. Open the `.pbix` file
+2. Refresh data if needed
+3. Explore interactive visuals
+
+---
+
+## 🎓 What I Learned
+
+* End-to-end analytics workflow
+* Data cleaning & feature engineering
+* Revenue strategy analytics
+* Power BI dashboard design
+* GitHub project publishing
+
+---
+
+## ⭐ Author
 
 **Rihana Roshan**
-Aspiring Data Analyst | Power BI | SQL | Python
+
+If you liked this project, feel free to ⭐ the repo!
